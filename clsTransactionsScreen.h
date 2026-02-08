@@ -4,6 +4,8 @@
 #include "clsInputValidate.h"
 #include"clsDepsitScreen.h"
 #include"clsWithdrawScreen.h"
+// #include"clsMainScrean.h"
+#include"clsTotalBalancesScreen.h"
 #include <iomanip>
 
 using namespace std;
@@ -40,7 +42,8 @@ private:
 
     static void _ShowTotalBalancesScreen()
     {
-        cout << "\n Balances Screen will be here.\n";
+        // cout << "\n Balances Screen will be here.\n";
+        clsTotalBalancesScreen::ShowTotalBalances();
     }
 
     static void _GoBackToTransactionsMenue()
@@ -82,7 +85,7 @@ private:
 
         case enTransactionsMenueOptions::eShowMainMenue:
         {
-            //do nothing here the main screen will handle it :-) ;
+            // clsMainScreen::ShowMainMenue();
         }
         }
 

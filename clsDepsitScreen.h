@@ -52,6 +52,15 @@ static void ShowDepsitScreen()
      }
      clsBankClient Client  = clsBankClient::Find(AccountN);
      _Print(Client);
+     double Check = Client.GetAccountBalance();
+     if (Check==0)
+     {
+      cout<<"There is no balance"<<endl;
+      return ;
+     }
+     else
+     {
+     
       double Dep = 0;
          cout<<"please Enter A Depsit : ";
       Dep=clsInputValidate::ReadDblNumber();
@@ -76,7 +85,7 @@ static void ShowDepsitScreen()
 
 
     }
-
+}
 
 };
 
