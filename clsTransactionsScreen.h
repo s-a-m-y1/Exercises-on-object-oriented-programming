@@ -2,6 +2,7 @@
 #include <iostream>
 #include "clsScreen.h"
 #include "clsInputValidate.h"
+#include"clsDepsitScreen.h"
 #include <iomanip>
 
 using namespace std;
@@ -26,7 +27,8 @@ private:
 
     static void _ShowDepositScreen()
     {
-        cout << "\n Deposit Screen will be here.\n";
+        // cout << "\n Deposit Screen will be here.\n"
+      clsDepsitScreen::ShowDepsitScreen();
     }
 
     static void _ShowWithdrawScreen()
