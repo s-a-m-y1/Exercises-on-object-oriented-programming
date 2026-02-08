@@ -2,7 +2,6 @@
 #include "clsString.h"
 #include<iostream>
 #include<ctime>
-#pragma warning(disable : 4996)
  #pragma once
 using namespace std;
 class clsDate

@@ -4,12 +4,10 @@
 #include"clsInputValidate.h"
 #include"clsBankClient.h"
 using namespace std;
-class clsDepsitScreen:protected clsScreen
+class clsclsWithdrawScreen:protected clsScreen
 {
-
-private:
-
-  static void _Print( clsBankClient& bank)
+    private:
+      static void _Print( clsBankClient& bank)
 {
    
     system("cls");
@@ -35,50 +33,50 @@ private:
         return AccountNumber;
     }
 
-
-
-public: 
-  
+public:
 static void ShowDepsitScreen()
 {
  
-     clsScreen::_DrawScreenHeader("Depsit Screen ");
+     clsScreen::_DrawScreenHeader(" \tWithdraw Screen ");
     
      string AccountN = _ReadAccountNumber();
      while (!clsBankClient::isClientExist(AccountN))
      {
-         cout<<"Ivaled Acount Number ["<<AccountN<<"] Try ";
+        cout<<"Ivaled Acount Number ["<<AccountN<<"] Try ";
            AccountN = _ReadAccountNumber();
      }
-     clsBankClient Client  = clsBankClient::Find(AccountN);
+     clsBankClient Client = clsBankClient::Find(AccountN);
      _Print(Client);
-      double Dep = 0;
-         cout<<"please Enter A Depsit : ";
-      Dep=clsInputValidate::ReadDblNumber();
-     while (Dep<=100)
+     double Check =Client.GetAccountBalance();
+     if (Check==0)
      {
-        cout<<"Invaled Number :"<<endl;
-          Dep =  clsInputValidate::ReadDblNumber();
+       cout<<"There is no balance"<<endl;
+       return ;
      }
-     
-    char Anwer ='N';
-     cout<<"Are You Sure Depsit : [Y N ]:";
-     cin>>Anwer;
+     else
+     {
+     double Withdraw = 0;
+     cout<<"Plaese Enter A Withdraw : ";
+     Withdraw  = clsInputValidate::ReadDblNumber();
+      char What ='n';
+     cout<<"Are You Sure Withdraw balance [Y - N]"<<endl;
+     cin>>ws>>What;
+     if (What=='y'||What=='Y')
+     {
+        Client. Withdraw(Withdraw);
+        cout<<"Done Successfully New Balance is : "<<Client.GetAccountBalance()<<endl;   
+      
+     }
+     else
+     {
+        cout<<"Withdraw Cancelled "<<endl;
+     }
 
-    if (Anwer=='Y'||Anwer=='y')
-    {
-        cout<<"Done "<<endl;
-       Client.Deposit(Dep);
-        cout<<"New Balance : "<< Client.GetAccountBalance()<<endl;
+
+
+
     }
-
-     
-
-
-    }
+}
 
 
 };
-
-
-

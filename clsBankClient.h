@@ -277,10 +277,21 @@ static double GetTotalBalances()
         Save();
     }
 
-    void Withdraw(double Amount)
+    bool Withdraw(double Amount)
     {
+        if (Amount>_AccountBalance)
+        {
+           
+        return false;
+        }
+        else
+        
         _AccountBalance -= Amount;
         Save();
+        return true;
+       
+    
+        
     }
 
 

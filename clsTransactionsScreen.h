@@ -3,6 +3,7 @@
 #include "clsScreen.h"
 #include "clsInputValidate.h"
 #include"clsDepsitScreen.h"
+#include"clsWithdrawScreen.h"
 #include <iomanip>
 
 using namespace std;
@@ -14,8 +15,7 @@ class clsTransactionsScreen :protected clsScreen
 private:
     enum enTransactionsMenueOptions {
         eDeposit = 1, eWithdraw = 2,
-        eShowTotalBalance = 3, eShowMainMenue = 4
-    };
+        eShowTotalBalance = 3, eShowMainMenue = 4};
 
     static short ReadTransactionsMenueOption()
     {
@@ -33,7 +33,9 @@ private:
 
     static void _ShowWithdrawScreen()
     {
-        cout << "\n Withdraw Screen will be here.\n";
+        // cout << "\n Withdraw Screen will be here.\n";
+        clsclsWithdrawScreen::ShowDepsitScreen();
+
     }
 
     static void _ShowTotalBalancesScreen()
