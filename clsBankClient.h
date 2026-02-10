@@ -27,8 +27,6 @@ static clsBankClient _ConvartEmptyLine()
 }
  static  vector<clsBankClient> _LoadClientFromFile()
 
-
-
     {
         vector<clsBankClient>Vclient;
           fstream Load ;

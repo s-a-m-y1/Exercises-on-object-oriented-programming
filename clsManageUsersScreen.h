@@ -1,6 +1,7 @@
 #include<iostream>
 #include"clsScreen.h"
 #include"clsInputValidate.h"
+#include"clsUsersList.h"
 #include <iomanip>
 using namespace std;
 class clsManageUsersScreen:protected clsScreen
@@ -19,14 +20,14 @@ class clsManageUsersScreen:protected clsScreen
     }
     static short _ReadOpthion ()
     {
-       cout << setw(37) << left << "" << "Choose what do you want to do? [1 to 4]? ";
-        short Choice = clsInputValidate::ReadShortNumberBetween(1, 4, "Enter Number between 1 to 4? ");
+       cout << setw(37) << left << "" << "Choose what do you want to do? [1 to 6]? ";
+        short Choice = clsInputValidate::ReadShortNumberBetween(1, 6, "Enter Number between 1 to 6? ");
         return Choice;
 
     }
   static void _ListUSersScreen()
   {
-    cout<<"HEre";
+   clsUsersList::Printheader();
 
   }
     static void _AddNewUSersScreen()
@@ -106,8 +107,8 @@ public:
         cout << setw(37) << left << "" << "\t[2] Add New User .\n";
         cout << setw(37) << left << "" << "\t[3] Delete User .\n";
         cout << setw(37) << left << "" << "\t[4] Update User .\n";
-        cout << setw(37) << left << "" << "\t[4] Find User .\n";
-        cout << setw(37) << left << "" << "\t[4] Main Screen  .\n";
+        cout << setw(37) << left << "" << "\t[5] Find User .\n";
+        cout << setw(37) << left << "" << "\t[6] Main Screen  .\n";
         cout << setw(37) << left << "" << "===========================================\n";
 
    Swiching((EnPerformopthion)_ReadOpthion());
