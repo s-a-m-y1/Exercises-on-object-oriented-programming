@@ -38,14 +38,14 @@ static clsUser _ConvertLineToUserObject (string Line , string Sepretor = "/")
   
 }
 
-static string _LineToSend(clsUser User , string Sepretor = "/")
+ string _LineToSend(clsUser User , string Sepretor = "/")
 {
     string Line ="";
     Line+= User.GetFirstName()+Sepretor+User.GetlastName()+Sepretor+User.GetEmail()+Sepretor+ User.GetPhone()+Sepretor+User._UserName+Sepretor+User._Password+Sepretor+to_string(User._Permisson);
    return Line;
 }
 
-static vector<clsUser>_LoadDateFromFile()
+ static vector<clsUser>_LoadDateFromFile()
 {
     vector<clsUser>VDate;
     fstream Loading ;
@@ -62,7 +62,7 @@ static vector<clsUser>_LoadDateFromFile()
     return VDate;
 }
 
-static void _saveData(vector<clsUser>&Vuser)
+ void _saveData(vector<clsUser>&Vuser)
 {
 fstream SaveNew;
 SaveNew.open("Users.txt" , ios::out);
@@ -223,7 +223,7 @@ Ensaveresult Save()
     {
     case _EnMode::Eempty  :
     {
-     return Ensaveresult::ESaveEmptyobject;
+     return Ensaveresult::ESaveEmptyobject; 
      break;
     }
     case _EnMode::Eupdate:
