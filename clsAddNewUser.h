@@ -124,6 +124,7 @@ clsUser::Ensaveresult saving = User.Save();
  switch (saving)
  {
  case clsUser::Ensaveresult ::EsaveSuceedad :
+ cout<<" Deone Add Suceedad  Show Detales : "<<endl;
 _Print(User);
 break;
 case clsUser::Ensaveresult ::svFaildAccountNumberExists :

@@ -3,6 +3,7 @@
 #include"clsInputValidate.h"
 #include"clsUsersList.h"
 #include"clsAddNewUser.h"
+#include"clsDeleteUserScreen.h"
 #include <iomanip>
 using namespace std;
 class clsManageUsersScreen:protected clsScreen
@@ -38,7 +39,7 @@ class clsManageUsersScreen:protected clsScreen
   }
     static void _DeleteUsersScreen()
   {
-    cout<<"HEre";
+  clsDeleteUserScreen::DeleteUSerScreen();
 
   }
     static void _UpdateUsersScreen()
