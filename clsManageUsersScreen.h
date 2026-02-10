@@ -2,6 +2,7 @@
 #include"clsScreen.h"
 #include"clsInputValidate.h"
 #include"clsUsersList.h"
+#include"clsAddNewUser.h"
 #include <iomanip>
 using namespace std;
 class clsManageUsersScreen:protected clsScreen
@@ -14,7 +15,7 @@ class clsManageUsersScreen:protected clsScreen
     }
     static void _GoBack()
     {
-     cout << "\n\nPress any key to go back to Transactions Menue...";
+     cout << "\n\nPress any key to go back to Manageusers Menue...";
         system("pause>0");
         mainMenuScreen();
     }
@@ -32,7 +33,7 @@ class clsManageUsersScreen:protected clsScreen
   }
     static void _AddNewUSersScreen()
   {
-    cout<<"HEre";
+   clsAddNewUser::AddUserScreen();
 
   }
     static void _DeleteUsersScreen()

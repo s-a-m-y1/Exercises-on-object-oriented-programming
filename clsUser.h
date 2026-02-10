@@ -40,7 +40,7 @@ static clsUser _ConvertLineToUserObject (string Line , string Sepretor = "/")
 
 static string _LineToSend(clsUser User , string Sepretor = "/")
 {
-    string Line ;
+    string Line ="";
     Line+= User.GetFirstName()+Sepretor+User.GetlastName()+Sepretor+User.GetEmail()+Sepretor+ User.GetPhone()+Sepretor+User._UserName+Sepretor+User._Password+Sepretor+to_string(User._Permisson);
    return Line;
 }
@@ -82,7 +82,7 @@ if (SaveNew.is_open())
 static void _AddNewUser(string LiNE )
 {
     fstream Add;
-    Add.open("Users.txt" , ios::app|ios::out);
+    Add.open("Users.txt" , ios::out|ios::app);
     if (Add.is_open())
     {
     Add<<LiNE<<endl;
@@ -110,9 +110,10 @@ _saveData(Vuser);
 }
 
 public:
-bool IsEmpty()
+enum EnPermisson{ P_Full =-1 ,P_ListClient =1 , P_AddClient  = 2 , P_DeleteClient = 4  , P_UpdateClient = 8 , P_FindClient = 16 , P_Tranactions =32  ,P_ManageUsers = 64 };
+bool IsUpdatet()
 {
-    return (_EnMode::Eempty);
+    return (_Mode== _EnMode::Eupdate);
 }
 clsUser ( _EnMode Mode, string firstName , string LastName  , string Email , string Phone , string UserName , string Password , int Permisson):clsPerson(firstName , LastName , Email  , Phone)
 {
@@ -170,7 +171,7 @@ if (read.is_open())
 
    read.close();
 }
-  _ConvertEmptyToUserObject();
+ return _ConvertEmptyToUserObject();
 }
 
 static clsUser FindUser(string Username  )
@@ -193,7 +194,7 @@ if (read.is_open())
 
    read.close();
 }
-  _ConvertEmptyToUserObject();
+ return _ConvertEmptyToUserObject();
 }
 
 bool DeleteUSer( )
@@ -254,13 +255,13 @@ Ensaveresult Save()
 
 static bool IsUserExist(string UserName)
 {
-    clsUser User = FindUser(UserName);
-    return (!User.IsEmpty());
+    clsUser User = clsUser:: FindUser(UserName);//المشكله هنا 
+    return (User.IsUpdatet());
 }
 
-clsUser GetAddNewUserobject(string Username)
+static clsUser GetAddNewUserobject(string Username)
 {
-    return clsUser(_EnMode::EAdd ,"" ,"" ,"","",Username ,"",0);
+    return clsUser  (_EnMode::EAdd ,"" ,"" ,"","",Username,"",0);
 
 }
 static vector<clsUser>GetListUsers()
