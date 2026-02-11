@@ -1,19 +1,22 @@
 #pragma once 
 #include<iostream>
+#include"clsScreen.h"
 #include"clsMainScrean.h"
 #include"Global.h"
 #include"clsUser.h"
 using namespace std;
-class clsLoginScreen
+class clsLoginScreen:protected clsScreen
 {
 private:
 static void _login()
 {
+    clsScreen::_DrawScreenHeader("\t Login Screen");
+
  bool IsFeald =false;
  string Username="" ,Password ="";
     do
     {
-       if (IsFeald)
+       if (IsFeald)//This condition is met if it is true.
     {
         cout << "invalid login username/password \n";
     }
