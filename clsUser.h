@@ -111,6 +111,10 @@ _saveData(Vuser);
 
 public:
 enum EnPermisson{ P_Full =-1 ,P_ListClient =1 , P_AddClient  = 2 , P_DeleteClient = 4  , P_UpdateClient = 8 , P_FindClient = 16 , P_Tranactions =32  ,P_ManageUsers = 64 };
+bool IsEmpty()
+{
+     return (_Mode== _EnMode::Eempty);
+}
 bool IsUpdatet()
 {
     return (_Mode== _EnMode::Eupdate);

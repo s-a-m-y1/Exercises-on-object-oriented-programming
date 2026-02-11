@@ -1,4 +1,5 @@
 #include<iostream>
+#pragma once
 #include<string>
 #include"clsInputValidate.h"
 #include"clsScreen.h"

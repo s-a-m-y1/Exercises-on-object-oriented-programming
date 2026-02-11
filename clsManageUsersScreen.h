@@ -1,10 +1,13 @@
 #include<iostream>
+#pragma once
+
 #include"clsScreen.h"
 #include"clsInputValidate.h"
 #include"clsUsersList.h"
 #include"clsAddNewUser.h"
 #include"clsDeleteUserScreen.h"
 #include"clsUpdateUserScreen.h"
+#include"clsFindUsersScreen.h"
 #include <iomanip>
 using namespace std;
 class clsManageUsersScreen:protected clsScreen
@@ -50,12 +53,11 @@ class clsManageUsersScreen:protected clsScreen
   }
     static void _FindUserScreen()
   {
-    cout<<"HEre";
+   clsFindUsersScreen::FindUserScreen();
 
   }
     static void _MainMenuScreen()
   {
-    cout<<"HEre";
 
   }
 
