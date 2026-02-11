@@ -1,14 +1,15 @@
 #include<iostream>
-#include<string>
+#pragma once
 #include"clsInputValidate.h"
 #include"clsScreen.h"
 #include"clsUser.h"
 using namespace std;
-class clsAddNewUser:protected clsScreen//this is base class 
-{
- private:
 
- static void _ReadClient(clsUser & AddUser)
+class clsUpdateUserScreen:protected clsScreen
+{
+    private:
+
+static void _ReadClient(clsUser & AddUser)
 {
 cout<<"Enter A First Name : ";
 AddUser.SetFirstName(clsInputValidate::ReadString());
@@ -104,37 +105,65 @@ static int ReadPermisionsToSet()
     }
   return Permisions;
 }
+
+
 public:
 
 
-static void AddUserScreen()
+static void UpdateUserScreen()
 {
- clsScreen::_DrawScreenHeader("Add  user Screen");
- string Username ="";
- cout<<"Please Enter a Username : ";
- Username = clsInputValidate::ReadString();
- while (clsUser::IsUserExist(Username))
- {
-cout<<"inValed Username try again :) ";
- Username = clsInputValidate::ReadString();
- }
 
-clsUser User = clsUser::GetAddNewUserobject(Username);//this is contrac for the Add New user handel  username
- _ReadClient(User);
-clsUser::Ensaveresult saving = User.Save();
- switch (saving)
+    clsScreen::_DrawScreenHeader("\t Update User Screen ");
+    string Username ="";
+    
+    cout<<"Please enter a User name : ";
+  Username= clsInputValidate::ReadString();
+ while (!clsUser::IsUserExist(Username))///
  {
- case clsUser::Ensaveresult ::EsaveSuceedad :
- cout<<" Deone Add Suceedad  Show Detales : "<<endl;
-_Print(User);
-break;
-case clsUser::Ensaveresult ::svFaildAccountNumberExists :
-cout<<" ! Sorry There is Data Is False Please try again. (: "<<endl;
-break;
-case clsUser::Ensaveresult ::ESaveEmptyobject :
-cout<<" ! Sorry, this process did not work. Please try again. (: "<<endl;
-break;
+    cout<<"Invaled Username Please Try again : ";
+    Username= clsInputValidate::ReadString();
  }
+ clsUser User =clsUser::FindUser(Username);
+
+ cout<<"Detals "<<endl;
+  _Print(User);
+ cout<<"\n=================="<<endl;
+ cout<<"Are you sure Update this user :";
+ char What ='n';
+ cin>>ws>>What;
+ if (What=='y'||What=='Y')
+ {
+    _ReadClient(User);
+    clsUser::Ensaveresult Saving = User.Save();
+    switch (Saving)
+    {
+    case clsUser::Ensaveresult::EsaveSuceedad:
+      cout<<"User Updated Successfully "<<endl;
+      break;
+      case clsUser::Ensaveresult::ESaveEmptyobject:
+      cout<<"Error User Was Not Updated Because It's Empty "<<endl;
+      break;
+      case clsUser::Ensaveresult::svFaildAccountNumberExists:
+      cout<<"Error User Was Not Updated Because Username  Already Exists "<<endl;
+      break;
+
+    }
+ }
+ else
+ {
+    cout<<"Exit";
+ }
+ 
+
+
+
+
 }
+
+
+
+
+
+
 
 };

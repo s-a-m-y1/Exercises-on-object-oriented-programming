@@ -4,6 +4,7 @@
 #include"clsUsersList.h"
 #include"clsAddNewUser.h"
 #include"clsDeleteUserScreen.h"
+#include"clsUpdateUserScreen.h"
 #include <iomanip>
 using namespace std;
 class clsManageUsersScreen:protected clsScreen
@@ -44,7 +45,7 @@ class clsManageUsersScreen:protected clsScreen
   }
     static void _UpdateUsersScreen()
   {
-    cout<<"HEre";
+  clsUpdateUserScreen::UpdateUserScreen();
 
   }
     static void _FindUserScreen()
