@@ -56,10 +56,7 @@ class clsManageUsersScreen:protected clsScreen
    clsFindUsersScreen::FindUserScreen();
 
   }
-    static void _MainMenuScreen()
-  {
 
-  }
 
 static  void Swiching (EnPerformopthion Choose )
   {
@@ -91,10 +88,8 @@ _FindUserScreen();
 _GoBack();
 break;
 case EnPerformopthion::EMain  :
-_Clear1();
-_MainMenuScreen();
-_GoBack();
-break;
+return;
+
 }
 
   }
