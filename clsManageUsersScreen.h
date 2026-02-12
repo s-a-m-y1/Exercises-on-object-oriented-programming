@@ -95,10 +95,15 @@ return;
   }
 
 public:
+ 
   static void  mainMenuScreen()
   {
+     if (! CheckAccessRight(clsUser::EnPermisson::P_ManageUsers))
+    {
+      return ;
+    }
      system("cls");
-        _DrawScreenHeader("\t  Transactions Screen");
+        _DrawScreenHeader("\t Manage Users Screen");
 
         cout << setw(37) << left << "" << "===========================================\n";
         cout << setw(37) << left << "" << "\t\t  Manage Users. \n";

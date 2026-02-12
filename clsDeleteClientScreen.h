@@ -27,7 +27,11 @@
 public:
 static void ShowDeleteClientScreen()
 {
-     clsScreen::_DrawScreenHeader("Delete Client Screen");
+   if (! CheckAccessRight(clsUser::EnPermisson::P_DeleteClient))
+    {
+      return ;
+    }
+     clsScreen::_DrawScreenHeader("\t Delete Client Screen");
     string AccountNumber ="";
     cout<<"Enter A Account Number ";
      AccountNumber =clsInputValidate::ReadString();

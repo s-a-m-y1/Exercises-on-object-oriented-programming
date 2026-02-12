@@ -32,9 +32,10 @@ class clsDate
     {
     time_t now =   time(0);
     struct tm localTime;
-    _Day= localTime.tm_mday=1;
-    _Month= localTime.tm_mon =1;
-    _Year = localTime.tm_year =1900;
+    localtime_s(&localTime, &now);
+    _Day= localTime.tm_mday;
+    _Month= localTime.tm_mon + 1;
+    _Year = localTime.tm_year + 1900;
     }
 
     void SetDay(const short Day )

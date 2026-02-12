@@ -273,5 +273,12 @@ static vector<clsUser>GetListUsers()
     return _LoadDateFromFile();
 
 }
+    bool CheckAccessPermssion(EnPermisson Permssion)
+    {
+        if ( this-> GetPermisson() == EnPermisson::P_Full)return true; // this is full access of system  in this object  // 
+       if ((Permssion & this->GetPermisson()) == Permssion ) return true;//this is check is the permisson this object he vs enpermisson and this permisson this object why Equal the permssion What I will pass by
+       else
+      return false; //if is not Equel return false '''
+    }
 
 };

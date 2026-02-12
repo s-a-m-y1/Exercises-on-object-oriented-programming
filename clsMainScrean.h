@@ -157,7 +157,7 @@ class clsMainScreen: protected clsScreen
         {
            
             system("cls");
-            _DrawScreenHeader("\t\tMain Screen");
+            _DrawScreenHeader("\tMain Screen");
 
             cout << setw(37) << left <<""<< "===========================================\n";
             cout << setw(37) << left << "" << "\t\t\tMain Menue\n";

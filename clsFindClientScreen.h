@@ -27,7 +27,12 @@ static void _Print( clsBankClient& bank)
 public:
 static void ShowFindClientScreen()
 {
-    clsScreen::_DrawScreenHeader("Find Client Screen");
+    if (! CheckAccessRight(clsUser::EnPermisson::P_FindClient))
+    {
+      return ;
+    }
+    
+    clsScreen::_DrawScreenHeader("\t Find Client Screen");
     string AccountNumber ="";
     cout<<"Enter A Account Number ";
     AccountNumber =clsInputValidate::ReadString();
