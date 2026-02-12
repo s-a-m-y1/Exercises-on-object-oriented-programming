@@ -3,7 +3,17 @@
 using namespace std;
 int main()
 {
-clsLoginScreen::Login();
+
+
+
+    while (true)
+    {
+        clsLoginScreen::Login();
+    }
+    
+
+
+
 system("pause>0");
     return 0;
 }

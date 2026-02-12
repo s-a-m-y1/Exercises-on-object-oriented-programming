@@ -102,6 +102,7 @@ static int ReadPermisionsToSet()
     if (What=='y'||What=='Y')
     {
         Permisions += clsUser::EnPermisson::P_ManageUsers;
+        // Permisions |= clsUser::EnPermisson::P_ManageUsers;
     }
   return Permisions;
 }
