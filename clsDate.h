@@ -37,7 +37,7 @@ class clsDate
     _Month= localTime.tm_mon + 1;
     _Year = localTime.tm_year + 1900;
     }
-
+    
     void SetDay(const short Day )
     {
         _Day = Day;

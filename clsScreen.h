@@ -20,7 +20,8 @@ protected :
         cout << "\n\t\t\t\t\t_____________________________________________\n\n";
 
         cout<<"\t\t\t\t\tUser : "<<Current.GetUserName()<<endl;
-        cout<<"\t\t\t\t\tDate : "<<Date.GetDay()<<"/"<<Date.GetMonth()<<"/"<<Date.GetYear()<<endl<<endl;
+         cout<<"\t\t\t\t\tDate : "<<Date.GetDay()<<"/"<<Date.GetMonth()<<"/"<<Date.GetYear()<<endl<<endl;
+        
     }
 
  

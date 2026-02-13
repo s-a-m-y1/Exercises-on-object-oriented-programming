@@ -4,16 +4,11 @@ using namespace std;
 int main()
 {
 
-
-
     while (true)
     {
-        clsLoginScreen::Login();
+    if (!clsLoginScreen::Login())  
+       break;
     }
-    
-
-
-
-system("pause>0");
+system("pause>null");
     return 0;
 }

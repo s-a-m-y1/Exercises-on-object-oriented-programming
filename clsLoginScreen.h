@@ -1,6 +1,7 @@
 #pragma once 
 #include<iostream>
 #include"clsScreen.h"
+#include"clsLoginiformation.h"
 #include"clsMainScrean.h"
 #include"Global.h"
 #include"clsUser.h"
@@ -8,17 +9,31 @@ using namespace std;
 class clsLoginScreen:protected clsScreen
 {
 private:
-static void _login()
+static bool _login()
 {
-    clsScreen::_DrawScreenHeader("\t Login Screen");
+
 
  bool IsFeald =false;
+    short counter =3;
  string Username="" ,Password ="";
-    do
+do 
+{
+
+    if (IsFeald)//This condition is met if it is true.
     {
-       if (IsFeald)//This condition is met if it is true.
-    {
+       counter--;
+       system("cls");
+         cout<<"________________):_____________"<<endl;
         cout << "invalid login username/password \n";
+        cout<<"You have "<<counter<<" trials to login : "<<endl;
+         cout<<"_______________^_^____________"<<endl;
+    }
+    if (counter==0)
+    {
+       cout<<"\n________________________________"<<endl;
+      cout<<"Sorry You've run out of adapters  Please Try again  ^_^  "<<endl;
+       cout<<"\n________________________________"<<endl;
+      return false;
     }
     cout << "Enter Username : ";
     cin >> Username;
@@ -26,19 +41,21 @@ static void _login()
     cout << "Enter Password : ";
     cin >> Password;
 
-Current = clsUser::FindUser(Username , Password); 
-IsFeald = Current.IsEmpty();
-
-    } while (IsFeald);
-
-clsMainScreen::ShowMainMenue();
+ Current = clsUser::FindUser(Username , Password); 
+ IsFeald = Current.IsEmpty();//this is return true or false in  if true this empty object but if this object updated to return false  
 }
+while(IsFeald);
+clsLoginiformation::Recordingsessions();
+clsMainScreen::ShowMainMenue();// here in the  condition false 
+ return true;
+};
+
 
 public:
-static void Login()
+static bool Login()
 {
-
-_login();
+clsScreen::_DrawScreenHeader("\t Login Screen");
+ return _login();
 }
 
 };
